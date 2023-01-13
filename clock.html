@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        html{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        body{
+            background-color: #181818;
+            color: #F2F2F2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+    
+        div.clockContainer{
+            background-color: #8758FF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        div.buttonContainer{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        div.button{
+            border-radius: 10px;
+            box-shadow:  7px 7px 14px #6542bf,-7px -7px 14px #a96eff;
+            background: linear-gradient(90deg, rgba(135,88,255,1) 50%, rgba(24,24,24,1) 50%);
+            background-size: 200% 100%;
+            background-position: right;
+            color: #F2F2F2;
+            font-family: 'Roboto Mono';
+            font-size: 20px;
+            padding: 10px;
+            width: 25%;
+            margin: 40px 0px 20px 0px;
+            cursor: pointer;
+            transition: all 1s;
+        }
+
+        div.button:hover{
+            background-position: left;
+            transition: all 1s;
+        }
+
+        div.button:not(:hover){
+            background-position: right;
+            transition: all 1s;
+        }
+
+        h1{
+            font-family: 'Roboto Mono';
+            font-size: 50px;
+            margin: 0;
+        }
+
+        @media (width: 450px) {
+            div.button {
+                 background-color: rgba(24, 24, 24, 1);
+                 transition: 0s;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1>The Great Stopwatch</h1>
+        <div class="clockContainer">
+            <h1 id="Clock">00:00:00</h1>
+        </div>
+        <div class="buttonContainer">
+            <div class="button" id="start">Start</div>
+            <div class="button" id="stop">Stop</div>
+            <div class="button" id="reset">Reset</div>
+        </div>
+    </div> 
+    <script>
+        seconds = 0;
+        minutes = 0;
+        hours = 0;
+
+        function clock(){
+            seconds++;
+            if(seconds === 60){
+                seconds = 0;
+                minutes++;
+            }
+            if(minutes === 60){
+                minutes = 0;
+                hours++;
+            }
+            if(hours === 24){
+                hours = 0;
+            }
+
+            if(seconds < 10){
+                s_display = "0" + seconds;
+            }
+            else{
+                s_display = seconds;
+            }
+
+
+            if(minutes < 10){
+                m_display = "0" + minutes;
+            }
+            else{
+                m_display = minutes;
+            }
+
+            if(hours < 10){
+                h_display = "0" + hours;
+            }
+            else{
+                h_display = hours;
+            }
+        
+            document.getElementById("Clock").innerHTML = `${h_display}:${m_display}:${s_display}`;
+        }
+
+        document.getElementById('start').addEventListener('click', () =>{
+            intervalID = setInterval(clock, 1000);
+        });
+
+        document.getElementById('stop').addEventListener('click', () =>{
+            clearInterval(intervalID);
+        });
+
+        document.getElementById('reset').addEventListener('click', () =>{
+            seconds = 0;
+            minutes = 0;
+            hours = 0;
+            document.getElementById("Clock").innerHTML = "00:00:00";
+        });
+    </script>
+</body>
+</html>
