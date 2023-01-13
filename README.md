@@ -3,15 +3,9 @@ A basic clock app built using Vanilla JS, HTML and CSS
 
 ### Things I learned when making the clock app
 
-> Note
+> 📝
 >
 > While writing this I realised I was able to make optimisations and clean up the code. I should probably do this in the future.
-
-{% note %}
-
-**Note:** Owners and administrators can add outside collaborators to a repository.
-
-{% endnote %}
 
 First and overiew of why I made this. I made this 'app' (isn't exactly an app) with just a single html page which included css and html. I mean there isn't much need to use a framework for something so basic. 
 
@@ -58,59 +52,13 @@ I learned more about javascript loading than you would think and more importantl
 	This probably has the most going on with it in erms of designs but I think it is most important to focus on the hover animation which is probably my first time using the transition property correctly after seeing it used so many times
 	 
 	So the background works as following. The button looks like this where although the button is the only visible part the purple part of the button is overflowed off the screen.
-	<div style="display: flex";>
-	<div style = "height: 100px; width: 200px; background: linear-gradient(90deg, rgba(135,88,255,1) 50%, white 50%);background-size: 200% 100%; display: flex; justify-content: center; align-items: center;background-position: left; color: #F2F2F2;font-family: 'Roboto Mono';" > Button (Unseen Portion)</div>
 	
-	<div style = "border-left: dotted white 2px;  border-right: dotted white 2px;; height: 100px; width: 200px; background: linear-gradient(90deg, rgba(135,88,255,1) 50%, rgba(24,24,24,1) 50%);background-size: 200% 100%; display: flex; justify-content: center; align-items: center;background-position: right; color: #F2F2F2;font-family: 'Roboto Mono';" > Button
-	</div>
-	
-	<div style = "height: 100px; width: 200px; background: linear-gradient(90deg, white 50%, rgba(24,24,24,1) 50%);background-size: 200% 100%; display: flex; justify-content: center; align-items: center;background-position: left; color: #F2F2F2;font-family: 'Roboto Mono';" >
-	</div>
-	</div>
-	
-	As the transition plays over 1 second the following happens
-	at 0.25 seconds
-	<div style="display: flex";>
-	
-	<div style = "height: 100px; width: 200px; background: linear-gradient(90deg,  white 50%, rgba(135,88,255,1) 50%);background-size: 200% 100%; display: flex; justify-content: center; align-items: center; background-position:75% 25%; color: #F2F2F2;font-family: 'Roboto Mono';" ></div>
-	
-	<div style = "border-left: dotted white 2px;  border-right: dotted white 2px;height: 100px; width: 200px; background: linear-gradient(90deg, rgba(135,88,255,1) 50%, rgba(24,24,24,1) 50%);background-size: 200% 100%; display: flex; justify-content: center; align-items: center; background-position: 75% 25%; color: #F2F2F2;font-family: 'Roboto Mono';" > Button</div>
-	
-	<div style = "height: 100px; width: 200px; background: linear-gradient(90deg, rgba(24,24,24,1) 50%, white 50%);background-size: 200% 100%; display: flex; justify-content: center; align-items: center; background-position: 75% 25%; color: #F2F2F2;font-family: 'Roboto Mono';" ></div>
-	</div>
+	<img width="685" alt="Screenshot 2023-01-13 at 23 39 11" src="https://user-images.githubusercontent.com/98868685/212437970-4b8ace54-5acc-498b-a3ab-cdf525341f58.png">
 
-	at 0.5 seconds
-	<div style="display: flex";>
-	
-	<div style = "height: 100px; width: 200px; background: linear-gradient(90deg,  white 50%, rgba(135,88,255,1) 50%);background-size: 200% 100%; display: flex; justify-content: center; align-items: center; background-position:50% 50%; color: #F2F2F2;font-family: 'Roboto Mono';" > Button (Unseen Portion)</div>
-	
-	<div style = "border-left: dotted white 2px; height: 100px; width: 200px; background: linear-gradient(90deg, rgba(135,88,255,1) 50%, rgba(24,24,24,1) 50%);background-size: 200% 100%; display: flex; justify-content: center; align-items: center;background-position: 50% 50%; color: #F2F2F2;font-family: 'Roboto Mono';" > Button</div>
-	
-	<div style = "height: 100px; width: 200px; background: linear-gradient(90deg, rgba(24,24,24,1) 50%, white 50%);background-size: 200% 100%; display: flex; justify-content: center; align-items: center;background-position: 50% 50%; color: #F2F2F2;font-family: 'Roboto Mono';" > Button (Unseen Portion)</div>
-	</div>
-	
-	at 0.75 seconds
-	<div style="display: flex";>
-	
-	<div style = "height: 100px; width: 200px; background: linear-gradient(90deg,  white 50%, rgba(135,88,255,1) 50%);background-size: 200% 100%; display: flex; justify-content: center; align-items: center;background-position:25% 75%; color: #F2F2F2;font-family: 'Roboto Mono';" > Button (Unseen Portion)</div>
-	
-	<div style = "border-left: dotted white 2px;  border-right: dotted white 2px;height: 100px; width: 200px; background: linear-gradient(90deg, rgba(135,88,255,1) 50%, rgba(24,24,24,1) 50%);background-size: 200% 100%; display: flex; justify-content: center; align-items: center;background-position: 25% 75%; color: #F2F2F2;font-family: 'Roboto Mono';" > Button</div>
-	
-	<div style = "height: 100px; width: 200px; background: linear-gradient(90deg, rgba(24,24,24,1) 50%, white 50%);background-size: 200% 100%; display: flex; justify-content: center; align-items: center;background-position: 25% 75%; color: #F2F2F2;font-family: 'Roboto Mono';" > Button (Unseen Portion)</div>
-	</div>
-	
-	and finally at the end of the transition at 1 seconds
-	<div style="display: flex";>
-	
-	<div style = "height: 100px; width: 200px; background: linear-gradient(90deg,  white 50%, rgba(135,88,255,1) 50%);background-size: 200% 100%; display: flex; justify-content: center; align-items: center;background-position: left; color: #F2F2F2;font-family: 'Roboto Mono';" > Button (Unseen Portion)</div>
-	
-	<div style = "border-left: dotted white 2px;  border-right: dotted white 2px;height: 100px; width: 200px; background: linear-gradient(90deg, rgba(135,88,255,1) 50%, rgba(24,24,24,1) 50%);background-size: 200% 100%; display: flex; justify-content: center; align-items: center;background-position: left; color: #F2F2F2;font-family: 'Roboto Mono';" > Button</div>
-	
-	<div style = "height: 100px; width: 200px; background: linear-gradient(90deg, rgba(24,24,24,1) 50%, white 50%);background-size: 200% 100%; display: flex; justify-content: center; align-items: center;background-position: left; color: #F2F2F2;font-family: 'Roboto Mono';" > Button (Unseen Portion)</div>
-	</div>
 
->[!tip]Change
->> I addded a div.button:not(:hover) so it would animate on the way out too
+> 🔥
+>
+> I addded a div.button:not(:hover) so it would animate on the way out too
 
 
 
